@@ -1,0 +1,18 @@
+class Solution {
+    public boolean canConstruct(String ransomNote, String magazine) {
+    int[] intArr=new int[128];
+        
+    char[] chArray=magazine.toCharArray();
+        for (char c : chArray)
+        {
+            intArr[c]++; //b=2
+        }
+    char[] ransomArr=ransomNote.toCharArray();
+        for (char c : ransomArr)
+        {
+            intArr[c]--; //b=2
+        }
+        boolean check= !Arrays.stream(intArr).anyMatch(x -> x<0);
+    return check;
+    }
+}
