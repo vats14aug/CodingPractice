@@ -2,6 +2,7 @@ package testpractise;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 class SingleElement {
 	
@@ -9,10 +10,24 @@ class SingleElement {
 
 	public static void main(String[] args) 
 	{
-		System.out.println(singleNonDuplicate(nums));
+		System.out.println(singleNonDuplicateWithoutCollections(nums));
 	}
 	
-    public static int singleNonDuplicate(int[] nums) {
+    private static int singleNonDuplicateWithoutCollections(int[] nums) {
+		int arr[] = new int[100];
+    	for(int i=0;i<nums.length;i++)
+		{
+			arr[nums[i]]++;
+		}
+    	
+    	return IntStream.range(0, arr.length)
+				.filter(i -> 1 == arr[i])
+				.findFirst()
+				.orElse(-1);	// return -1 if target is not found
+    	
+	}
+
+	public static int singleNonDuplicateCollections(int[] nums) {
     	
     
 		HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
