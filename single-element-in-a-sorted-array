@@ -24,7 +24,7 @@ class SingleElement {
 				.filter(i -> 1 == arr[i])
 				.findFirst()
 				.orElse(-1);	// return -1 if target is not found
-    	
+ 
 	}
 
 	public static int singleNonDuplicateCollections(int[] nums) {
