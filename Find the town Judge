@@ -1,0 +1,19 @@
+class Solution {
+    public int findJudge(int N, int[][] trust) { 
+        int count[]=new int[N+1]; //because index starts from 0
+        if(trust.length==0) return N; //if there's only 1 person
+        for(int[] tr : trust)
+        {
+            //tr : [1,2]
+            count[tr[0]]--; //decreasing the value of [1]
+            count[tr[1]]++; // adding the value to trust person [2]
+        }        
+        for(int i=0;i<N+1;i++)
+        {
+            if(count[i]==N-1) //because total persons-1 will trust that judge
+                return i;           
+        }
+        return -1;
+    }   
+}
+    
