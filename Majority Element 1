@@ -1,0 +1,19 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> hmap=new HashMap<Integer,Integer>();
+        for(int i : nums)
+        {
+            if(hmap.get(i)!=null)
+            {
+                hmap.put(i,hmap.get(i)+1);
+            }
+            else
+            {
+                hmap.put(i,1);
+            }
+        }
+        //java 8 return the key which is having maximum value
+        return Collections.max(hmap.entrySet(), Map.Entry.comparingByValue()).getKey();
+
+    }
+}
