@@ -1,0 +1,17 @@
+class Solution {
+    public List<Integer> majorityElement(int[] nums) {
+        HashMap<Integer,Integer> hmap=new HashMap<Integer,Integer>();
+        HashSet<Integer> majSet=new HashSet<Integer>();
+        for(int i : nums)
+        {
+            if(hmap.get(i)!=null) hmap.put(i,hmap.get(i)+1);
+            
+            else hmap.put(i,1);
+            
+            if(hmap.get(i)>nums.length/3) majSet.add(i);
+            
+        }
+         
+        return new ArrayList<Integer>(majSet);
+     }
+}
