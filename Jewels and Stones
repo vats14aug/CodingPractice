@@ -1,0 +1,36 @@
+class Solution {
+    
+    public int numJewelsInStones(String J, String S) 
+    {
+        char[] stoneArr=S.toCharArray();
+        char[] jewelArr=J.toCharArray();
+        int count=0;
+        HashMap<Character, Integer> stoneMap = new HashMap<Character, Integer>();
+        for (int i=0;i<stoneArr.length;i++)
+        {
+            if(stoneMap.containsKey(stoneArr[i]))
+            {
+            stoneMap.put(stoneArr[i],stoneMap.get(stoneArr[i])+1);
+            }
+            else
+            {
+            stoneMap.put(stoneArr[i],1);
+            }
+                
+        }
+        
+        for(int i=0;i<jewelArr.length;i++)
+        {
+            if(stoneMap.containsKey(jewelArr[i]))
+            {
+                count+=stoneMap.get(jewelArr[i]);
+            }
+        }
+        
+        return count;
+        
+        
+        
+        
+    }
+}
