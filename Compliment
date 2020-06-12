@@ -1,0 +1,24 @@
+package testpractise;
+
+import java.util.Scanner;
+
+public class Interview {
+
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		String input = sc.nextLine();
+		int[] a = new int[128];
+		char[] chArray = input.toCharArray();
+		for (char ch : chArray) {
+			a[ch]++;
+		}
+
+		if ((a['['] == a[']']) && (a['{'] == a['}']))
+		{
+			System.out.println(" Compliment");
+		} else
+			System.out.println(" NOT Compliment");
+
+	}
+
+}
