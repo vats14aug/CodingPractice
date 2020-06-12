@@ -1,0 +1,34 @@
+package testpractise;
+
+public class Subsequence {
+
+	public static void main(String[] args) {
+		System.out.println(isSubsequence("abc", "agbhgcfg"));
+	}
+
+	public static boolean isSubsequence(String s, String t) {
+		 if(s.equals("")){
+	            return true;
+	        }
+	        
+	        if(s == null || t == null || t.equals("") || s.length() > t.length() ){
+	            return false;
+	        }
+		char[] chArrayt = t.toCharArray();
+		char[] chArrays = s.toCharArray();
+		int temp = 0;
+		for (int i = 0; i < chArrayt.length; i++) {
+			if (temp<chArrays.length && chArrayt[i] == chArrays[temp]  ) {
+				System.out.println("found");
+				temp++;
+
+			}
+
+		}
+		if (temp == chArrays.length) {
+			return true;
+		} else
+			return false;
+
+	}
+}
