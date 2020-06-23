@@ -1,0 +1,26 @@
+package testpractise;
+
+import java.util.HashMap;
+
+public class StringSplit {
+
+	public static void main(String[] args) {
+		String s ="EmployeeId=12345|EmployeeAge=23|Designation=SystemsEngineer";
+		HashMap<String,String> map=new HashMap<String,String>();
+		String[] arrOfStr = s.split("\\|"); 
+
+        for (String a : arrOfStr) 
+        {
+        	String[] strValues =  a.split("=");
+        	map.put(strValues[0],strValues[1]);
+            
+            
+        }
+        System.out.println(map.get("Designation")); ///SystemsEngineer
+        
+					
+	}
+	
+	
+	
+	}
